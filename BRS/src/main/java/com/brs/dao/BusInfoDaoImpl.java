@@ -76,6 +76,12 @@ public class BusInfoDaoImpl implements BusInfoDao {
 	}
 
 	@Override
+	public Bus_Info_Bean bookBus(int id) {
+		Bus_Info_Bean busById = manager.find(Bus_Info_Bean.class, id);
+		return busById;
+	}
+
+	@Override
 	public boolean isvalidUser(String username, String password) {
 		return username.equalsIgnoreCase("admin") && password.equals("admin");
 	}

@@ -1,40 +1,38 @@
 package com.brs.bean;
 
-import java.util.ArrayList;
-
-import java.util.Date;
-import java.util.List;
-
+			
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "BUS_DETAILS")
 public class Bus_Info_Bean {
-	
+
 	int bus_id;
 	String bus_type;
+	String bus_name;
 	int capacity;
 	String source;
 	String destination;
+	int fare;
 
 	public Bus_Info_Bean() {
 		super();
 	}
 
-	public Bus_Info_Bean(int bus_id, String bus_type, int capacity, String source, String destination) {
+	public Bus_Info_Bean(int bus_id, String bus_type,String bus_name, int capacity, String source, String destination, int fare) {
 		super();
 		this.bus_id = bus_id;
 		this.bus_type = bus_type;
+		this.bus_name = bus_name;
 		this.capacity = capacity;
 		this.source = source;
 		this.destination = destination;
+		this.fare = fare;
+		
 	}
-
 
 	@Id
 	@Column(name = "BUS_ID")
@@ -53,6 +51,15 @@ public class Bus_Info_Bean {
 
 	public void setBus_type(String bus_type) {
 		this.bus_type = bus_type;
+	}
+	
+
+	public String getBus_name() {
+		return bus_name;
+	}
+
+	public void setBus_name(String bus_name) {
+		this.bus_name = bus_name;
 	}
 
 	@Column(name = "CAPACITY")
@@ -82,10 +89,21 @@ public class Bus_Info_Bean {
 		this.destination = destination;
 	}
 
+	@Column(name = "FARE")
+	public int getFare() {
+		return fare;
+	}
+
+	public void setFare(int fare) {
+		this.fare = fare;
+	}
+
 	@Override
 	public String toString() {
-		return "Bus_Info_Bean [bus_id=" + bus_id + ", bus_type=" + bus_type + ", capacity=" + capacity + ", source="
-				+ source + ", destination=" + destination + "]";
+		return "Bus_Info_Bean [bus_id=" + bus_id + ", bus_type=" + bus_type + ", bus_name=" + bus_name + ", capacity="
+				+ capacity + ", source=" + source + ", destination=" + destination + ", fare=" + fare + "]";
 	}
+
+	
 
 }

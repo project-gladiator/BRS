@@ -49,30 +49,20 @@ public class BRSController {
 		mAndV.addObject("list", busList);
 		return mAndV;
 	}
+	
+	@RequestMapping("/book")
+	public ModelAndView bookBus(@RequestParam("id") int bus_id) {
+		ModelAndView mAndV = new ModelAndView("Book");
+		Bus_Info_Bean bus;
+			bus = busInfoServices.bookBus(bus_id);
+			System.out.println(bus);
+			
+			// Pass-on this data to JSP
+			mAndV.addObject("emp",bus);
+		
+		return mAndV;
+	} 
 
 	
-//	 @RequestMapping(value = "/buslist", method = RequestMethod.POST)
-//	public String busDetails(ModelMap model, Bus_Info_Bean busInfo) {
-//	 System.out.println("BRSController.busDetails POST method...");
-//	 List<Bus_Info_Bean> busFetch = null; busFetch =
-//	 busInfoServices.busFetch(busInfo);
-//	 
-//	 for (Bus_Info_Bean bus_Info_Bean : busFetch) { System.out.println("fetch" +
-//	 bus_Info_Bean); } model.put("busfetch", busFetch); // model.put("dest",dest);
-//	 return "busDetails"; }
-	 
 
-//	@RequestMapping(value="/busDetails" , method = RequestMethod.GET)
-//	public ModelAndView getEmpList(){
-//		System.out.println("LoginController.showLoginPage GET method...");
-//		List<Bus_Info_Bean> busList = null;
-//		ModelAndView mAndV = null;
-//		busList = busInfoServices.getBusDetails();
-//		//System.out.println(empList);
-//		mAndV = new ModelAndView();
-//		// Pass-on this data to JSP
-//		mAndV.setViewName("busDetails");
-//		mAndV.addObject("list", busList);
-//		return mAndV;
-//	} 
 }

@@ -35,5 +35,10 @@ public class BusInfoServicesImpl implements BusInfoServices {
 	public boolean isvalidUser(String username, String password) {
 		return busInfoDao.isvalidUser(username, password);
 	}
+	
+	@Override
+	public Bus_Info_Bean bookBus(int id) {
+		return busInfoDao.bookBus(id);
+	}
 
 }
