@@ -26,9 +26,14 @@ public class BusInfoServicesImpl implements BusInfoServices {
 	}
 
 	@Override
-	public List<Bus_Info_Bean> busFetch(String source, String dest) {
+	public List<Bus_Info_Bean> busFetch(Bus_Info_Bean busInfo) {
 
-		return busInfoDao.busFetch(source, dest);
+		return busInfoDao.busFetch(busInfo);
+	}
+
+	@Override
+	public boolean isvalidUser(String username, String password) {
+		return busInfoDao.isvalidUser(username, password);
 	}
 
 }

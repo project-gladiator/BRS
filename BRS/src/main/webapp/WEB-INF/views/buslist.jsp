@@ -9,36 +9,12 @@
 </head>
 <body>
 <h1>Bus List</h1>
-	<!-- 
-	<form action="spring-mvc/busDetails" method="post">
-	
-	<input type="submit">
-	</form> -->
-	
-	
-		
-<%-- 		<h1>Employee List</h1>
-	<table border="1">
-		<tr>
-			<th>Bus_ID</th>
-			<th>Bus_Type</th>
-			<th>Capacity</th>
-			<th>Source</th>
-			<th>Destination</th>
-		</tr>
-		<!-- For loop -->
-		<c:forEach items="${requestScope.list }"  var="emp">
-			<tr>
-				<td>${emp.bus_id }</td>
-				<td>${emp.bus_type }</td>
-				<td>${emp.capacity }</td>
-				<td>${emp.source }</td>
-				<td>${emp.destination }</td>
-				<!-- <td><a href="spring-mvc/busDetails">Details</a></td> -->
-			</tr>
-		</c:forEach>
-	</table> --%>
-	
+	 
+	<form action="buslist" method="post">
+	Source:<input type="text" name="source"><br><br>
+	Destination:<input type="text" name="destination"><br><br>
+	<input type="submit" name="Submit">
+	</form> 
 	
 </body>
 </html>

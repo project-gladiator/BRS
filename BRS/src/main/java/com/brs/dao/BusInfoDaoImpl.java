@@ -62,13 +62,22 @@ public class BusInfoDaoImpl implements BusInfoDao {
 //			contList.add(cont);
 //		//return null;		
 //	}
-		Query qry = manager.createQuery("FROM Bus_Info_Bean");
+		return null;
+	}
+
+	@Override
+	public List<Bus_Info_Bean> busFetch(Bus_Info_Bean busInfo) {
+		String src = busInfo.getSource();
+		String dest = busInfo.getDestination();
+		Query qry = manager.createQuery("FROM Bus_Info_Bean WHERE SOURCE=:src AND DESTINATION=:dest");
+		qry.setParameter("src", src);
+		qry.setParameter("dest", dest);
 		return qry.getResultList();
 	}
 
 	@Override
-	public List<Bus_Info_Bean> busFetch(String source, String dest) {
-		
-		return null;
+	public boolean isvalidUser(String username, String password) {
+		return username.equalsIgnoreCase("admin") && password.equals("admin");
 	}
+
 }

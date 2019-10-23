@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,12 +25,23 @@ public class BRSController {
 	@Resource
 	private BusInfoServices busInfoServices;
 
+	
+	private Bus_Info_Bean bus_info_bean =new Bus_Info_Bean();
+	
 	@RequestMapping(value = "/buslist", method = RequestMethod.GET)
-	public ModelAndView showLoginPage() {
+	public String toBusSearch() {
+		return "buslist";
+	}
+	
+	@RequestMapping(value = "/buslist", method = RequestMethod.POST)
+	public ModelAndView showBus(ModelMap model, Bus_Info_Bean busInfo) {
+//		
+		bus_info_bean.setSource(busInfo.getSource());
+		bus_info_bean.setDestination(busInfo.getDestination());
 		System.out.println("LoginController.showLoginPage GET method...");
 		List<Bus_Info_Bean> busList = null;
 		ModelAndView mAndV = null;
-		busList = busInfoServices.getBusDetails();
+		busList = busInfoServices.busFetch(bus_info_bean);
 		// System.out.println(empList);
 		mAndV = new ModelAndView();
 		// Pass-on this data to JSP
@@ -38,19 +50,17 @@ public class BRSController {
 		return mAndV;
 	}
 
-//	@RequestMapping(value = "/buslist", method = RequestMethod.POST)
-//	public String busDetails(ModelMap model, @RequestParam String src, @RequestParam String dest) {
-//		System.out.println("BRSController.busDetails POST method...");
-//		List<Bus_Info_Bean> busFetch = null;
-//		busFetch = busInfoServices.busFetch(src, dest);
-//
-//		for (Bus_Info_Bean bus_Info_Bean : busFetch) {
-//			System.out.println("fetch" + bus_Info_Bean);
-//		}
-//		model.put("busfetch", busFetch);
-////		model.put("dest",dest);
-//		return "busDetails";
-//	}
+	
+//	 @RequestMapping(value = "/buslist", method = RequestMethod.POST)
+//	public String busDetails(ModelMap model, Bus_Info_Bean busInfo) {
+//	 System.out.println("BRSController.busDetails POST method...");
+//	 List<Bus_Info_Bean> busFetch = null; busFetch =
+//	 busInfoServices.busFetch(busInfo);
+//	 
+//	 for (Bus_Info_Bean bus_Info_Bean : busFetch) { System.out.println("fetch" +
+//	 bus_Info_Bean); } model.put("busfetch", busFetch); // model.put("dest",dest);
+//	 return "busDetails"; }
+	 
 
 //	@RequestMapping(value="/busDetails" , method = RequestMethod.GET)
 //	public ModelAndView getEmpList(){
