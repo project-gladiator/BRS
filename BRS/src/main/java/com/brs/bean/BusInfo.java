@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "BUS_DETAILS")
-public class Bus_Info_Bean {
+public class BusInfo {
 
 	int bus_id;
 	String bus_type;
@@ -18,11 +18,11 @@ public class Bus_Info_Bean {
 	String destination;
 	int fare;
 
-	public Bus_Info_Bean() {
+	public BusInfo() {
 		super();
 	}
 
-	public Bus_Info_Bean(int bus_id, String bus_type,String bus_name, int capacity, String source, String destination, int fare) {
+	public BusInfo(int bus_id, String bus_type,String bus_name, int capacity, String source, String destination, int fare) {
 		super();
 		this.bus_id = bus_id;
 		this.bus_type = bus_type;

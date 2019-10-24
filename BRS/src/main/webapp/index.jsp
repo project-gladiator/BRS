@@ -1,9 +1,9 @@
 <html>
 <head></head>
 <body>
-<a href="spring-mvc/buslist">click</a>
+<a href="spring-mvc/buslist">SearchAndBook</a>
 <a href="spring-mvc/login">login</a>
-
+<!-- <a href="spring-mvc/booking">Book</a> -->
 <!-- <form action="spring-mvc/buslist" >
 Source:<input type="text" name="source"><br><br>
 Destination:<input type="text" name="dest"><br><br>

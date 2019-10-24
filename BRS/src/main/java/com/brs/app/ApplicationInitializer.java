@@ -10,16 +10,15 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 public class ApplicationInitializer implements WebApplicationInitializer
 {
-    @Override
-    public void onStartup(ServletContext servletContext) throws ServletException
-    {
-    	System.out.println("in here..");
-        XmlWebApplicationContext appContext = new XmlWebApplicationContext();
-        appContext.setConfigLocation("/WEB-INF/config/dispatcher-servlet.xml");
- 
-        ServletRegistration.Dynamic registration = servletContext
-                    .addServlet("rootDispatcher", new DispatcherServlet(appContext));
-        registration.setLoadOnStartup(1);
-        registration.addMapping("/spring-mvc/*");
-    }
+   public void onStartup(ServletContext servletContext) throws ServletException {
+	// TODO Auto-generated method stub
+	   System.out.println("in here..");
+	    XmlWebApplicationContext appContext = new XmlWebApplicationContext();
+	    appContext.setConfigLocation("/WEB-INF/config/dispatcher-servlet.xml");
+
+	    ServletRegistration.Dynamic registration = servletContext
+	                .addServlet("rootDispatcher", new DispatcherServlet(appContext));
+	    registration.setLoadOnStartup(1);
+	    registration.addMapping("/spring-mvc/*");
+}
 }

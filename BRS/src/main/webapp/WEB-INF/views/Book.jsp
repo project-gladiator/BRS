@@ -9,7 +9,7 @@
 <body>
 	<h1>Bus Details</h1>
 	
-	
+	<div>
 	<table border="1">
 	<tr>
 			<th>Bus_ID</th>
@@ -30,5 +30,15 @@
 			<td>${requestScope.emp.fare}</td>
 		</tr>
 	</table>
+	</div>
+	
+	<div>
+	<form action="bookticket?id=${requestscope.emp.bus_id} " method="post">
+	<input type="text" name="name" placeholder="Enter name">
+	<input type="email" name="email" placeholder="Enter Email Id">
+	<input type="number" name="noOfSeats" required="required" value="1" min="1">
+	<input type="submit"> 
+	</form>
+	</div>
 </body>
 </html>

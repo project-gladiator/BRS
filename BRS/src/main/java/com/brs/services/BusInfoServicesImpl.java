@@ -4,12 +4,11 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.brs.bean.Bus_Info_Bean;
+import com.brs.bean.BusInfo;
 import com.brs.dao.BusInfoDao;
 
 @Service("busInfoServices")
@@ -19,26 +18,35 @@ public class BusInfoServicesImpl implements BusInfoServices {
 
 	@Resource
 	private BusInfoDao busInfoDao;
-
-	@Override
-	public List<Bus_Info_Bean> getBusDetails() {
+	
+	
+	public List<BusInfo> getBusDetails() {
+		// TODO Auto-generated method stub
 		return busInfoDao.getBusDetails();
 	}
 
-	@Override
-	public List<Bus_Info_Bean> busFetch(Bus_Info_Bean busInfo) {
-
+	public List<BusInfo> busFetch(BusInfo busInfo) {
+		// TODO Auto-generated method stub
 		return busInfoDao.busFetch(busInfo);
 	}
 
-	@Override
 	public boolean isvalidUser(String username, String password) {
+		// TODO Auto-generated method stub
 		return busInfoDao.isvalidUser(username, password);
 	}
-	
-	@Override
-	public Bus_Info_Bean bookBus(int id) {
+
+	public BusInfo busById(int id) {
+		// TODO Auto-generated method stub
 		return busInfoDao.bookBus(id);
 	}
+	
+
+	
+
+	
+
+	
+	
+	
 
 }

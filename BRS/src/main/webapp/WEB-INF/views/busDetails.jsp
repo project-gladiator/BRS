@@ -30,7 +30,7 @@
 				<td>${emp.source }</td>
 				<td>${emp.destination }</td> 
 				<td>${emp.fare }</td>
-				<td><a href="book?id=${emp.bus_id}">BOOK</a></td>
+				<td><a href="booking?id=${emp.bus_id}">BOOK</a></td>
 			</tr>
 		</c:forEach>
 	</table>

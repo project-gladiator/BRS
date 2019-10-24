@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.brs.bean.Bus_Info_Bean;
+import com.brs.bean.BusInfo;
 
 @Repository
 @Scope("singleton") // By default spring objects are singleton.
@@ -37,53 +37,34 @@ public class BusInfoDaoImpl implements BusInfoDao {
 	@PersistenceContext
 	private EntityManager manager;
 
-	@Override
-	public List<Bus_Info_Bean> getBusDetails() {
-//		String qry = "SELECT * FROM BUS_DETAILS";
-//		List<Map<String, Object>> mapEmpList = jt.queryForList(qry,new Object[] {});
-//		List<Bus_Info_Bean> contList = new ArrayList<Bus_Info_Bean>();
-//		System.out.println("ASDFGASDFGH");
-//		for(Map<String, Object> mapRec : mapEmpList) {
-//			System.out.println("ASDFGASDFGHQQWESDFGB");
-//			BigDecimal busid=(BigDecimal)mapRec.get("BUS_ID");
-//			String btype = (String) mapRec.get("BUS_TYPE");
-//			String src = (String) mapRec.get("SOURCE");
-//			String dest= (String) mapRec.get("DESTINATION");
-//			BigDecimal cap=(BigDecimal)mapRec.get("CAPACITY");
-//			
-//			
-//			System.out.println("saadfgb");
-//			//BigDecimal Phone = (BigDecimal) mapRec.get("PHONE");
-//			Bus_Info_Bean cont = new Bus_Info_Bean(busid.intValue(),btype,cap.intValue(),src,dest);
-//			
-//			
-//			//cont.setBus_info_bean(mapEmpList);
-//			//System.out.println("ASDFG");
-//			contList.add(cont);
-//		//return null;		
-//	}
+
+
+	public List<BusInfo> getBusDetails() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public List<Bus_Info_Bean> busFetch(Bus_Info_Bean busInfo) {
-		String src = busInfo.getSource();
-		String dest = busInfo.getDestination();
-		Query qry = manager.createQuery("FROM Bus_Info_Bean WHERE SOURCE=:src AND DESTINATION=:dest");
-		qry.setParameter("src", src);
-		qry.setParameter("dest", dest);
-		return qry.getResultList();
-	}
 
-	@Override
-	public Bus_Info_Bean bookBus(int id) {
-		Bus_Info_Bean busById = manager.find(Bus_Info_Bean.class, id);
+	public BusInfo bookBus(int id) {
+		BusInfo busById = manager.find(BusInfo.class, id);
 		return busById;
 	}
 
-	@Override
+
 	public boolean isvalidUser(String username, String password) {
+		// TODO Auto-generated method stub
 		return username.equalsIgnoreCase("admin") && password.equals("admin");
+	}
+
+
+	public List<BusInfo> busFetch(BusInfo busInfo) {
+		// TODO Auto-generated method stub
+		String src = busInfo.getSource();
+		String dest = busInfo.getDestination();
+		Query qry = manager.createQuery("FROM BusInfo WHERE SOURCE=:src AND DESTINATION=:dest");
+		qry.setParameter("src", src);
+		qry.setParameter("dest", dest);
+		return qry.getResultList();
 	}
 
 }

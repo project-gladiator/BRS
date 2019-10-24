@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-import com.brs.bean.Bus_Info_Bean;
+import com.brs.bean.BusInfo;
 import com.brs.services.BusInfoServices;
 
 public class Test_BusInfo {
@@ -15,8 +15,8 @@ public class Test_BusInfo {
 		BusInfoServices busInfoServicess = context.getBean("busInfoServices", BusInfoServices.class);
 		System.out.println("asdfgh");
 		try {
-			List<Bus_Info_Bean> busList = busInfoServicess.getBusDetails();
-			for (Bus_Info_Bean bus_Info_Bean : busList) {
+			List<BusInfo> busList = busInfoServicess.getBusDetails();
+			for (BusInfo bus_Info_Bean : busList) {
 				System.out.println("bus_detail" + bus_Info_Bean);
 			}
 		} catch (Exception e) {

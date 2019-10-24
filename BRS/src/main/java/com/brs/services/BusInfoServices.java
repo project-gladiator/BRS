@@ -2,13 +2,13 @@ package com.brs.services;
 
 import java.util.List;
 
-import com.brs.bean.Bus_Info_Bean;
+import com.brs.bean.BusInfo;
 
 public interface BusInfoServices {
-	public List<Bus_Info_Bean> getBusDetails();
+	public List<BusInfo> getBusDetails();
 
-	public List<Bus_Info_Bean> busFetch(Bus_Info_Bean busInfo);
+	public List<BusInfo> busFetch(BusInfo busInfo);
 	public boolean isvalidUser(String username, String password);
-	public Bus_Info_Bean bookBus(int id);
+	public BusInfo busById(int id);
 	
 }
